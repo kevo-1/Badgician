@@ -1,5 +1,21 @@
 [
   {
+    "full_name": "Kevin",
+    "discord": "kivenn",
+    "badge_count": 2,
+    "badges": [
+      {
+        "name": "example",
+        "timestamp": "27/10/2025 10:00:00"
+      },
+      {
+        "name": "example",
+        "timestamp": "27/10/2025 10:00:00"
+      }
+    ],
+    "rank": 1
+  },
+  {
     "full_name": "John doe",
     "discord": "johnie",
     "badge_count": 1,
@@ -9,18 +25,6 @@
         "timestamp": "2025-10-27 10:00:00"
       }
     ],
-    "rank": 1
-  },
-  {
-    "full_name": "Kevin",
-    "discord": "kivenn",
-    "badge_count": 1,
-    "badges": [
-      {
-        "name": "example",
-        "timestamp": "27/10/2025 10:00:00"
-      }
-    ],
-    "rank": 1
+    "rank": 2
   }
 ]
