@@ -1,54 +1,54 @@
 name: Sync Badges from Google Sheets
 
 on:
-  schedule:
-    # Runs at midnight UTC every day
-    - cron: '0 0 * * *'
-  workflow_dispatch: # Allows manual triggering
+    schedule:
+        # Runs at midnight UTC every day
+        - cron: "0 0 * * *"
+    workflow_dispatch: # Allows manual triggering
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+    contents: write
+    pages: write
+    id-token: write
 
 jobs:
-  sync-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    sync-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          pip install gspread oauth2client
+            - name: Install dependencies
+              run: |
+                  pip install gspread oauth2client
 
-      - name: Sync badges from Google Sheets
-        env:
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-          SHEET_ID: ${{ secrets.SHEET_ID }}
-        run: python scripts/sync_badges.py
+            - name: Sync badges from Google Sheets
+              env:
+                  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+                  SHEET_ID: ${{ secrets.SHEET_ID }}
+              run: python scripts/sync_badges.py
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add data/badges.json docs/index.html
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update badges and leaderboard [automated]"
+            - name: Commit changes
+              run: |
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git add data/badges.json docs/index.html
+                  git diff --quiet && git diff --staged --quiet || git commit -m "update(leaderboard): *this is automated by the script*"
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.ref }}
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs
+                  publish_branch: gh-pages
