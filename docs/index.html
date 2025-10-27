@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Leaderboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .leaderboard {
+            padding: 2rem;
+        }
+        
+        .leaderboard-entry {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 4px solid #667eea;
+        }
+        
+        .leaderboard-entry:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .rank {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .rank-1 { color: #FFD700; }
+        .rank-2 { color: #C0C0C0; }
+        .rank-3 { color: #CD7F32; }
+        
+        .user-info {
+            flex: 1;
+            margin-left: 1.5rem;
+        }
+        
+        .user-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .discord-name {
+            font-size: 0.9rem;
+            color: #7289da;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-count {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+        
+        .badge {
+            width: 48px;
+            height: 48px;
+            transition: transform 0.2s;
+        }
+        
+        .badge:hover {
+            transform: scale(1.2);
+        }
+        
+        .last-updated {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .leaderboard-entry {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .badges {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 Badge Leaderboard</h1>
+            <p>Top contributors and their achievements</p>
+        </div>
+        
+        <div class="leaderboard">
+        </div>
+        
+        <div class="last-updated">
+            Last updated: 2025-10-27 14:27:42 UTC
+        </div>
+    </div>
+</body>
+</html>
