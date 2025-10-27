@@ -241,7 +241,7 @@ def generate_html(leaderboard):
         badges_html = ''
         for badge in entry['badges']:
             badge_filename = badge['name'].lower().replace(' ', '_') + '.svg'
-            badges_html += f'            <img src="./badges/{badge_filename}" alt="{badge["name"]}" class="badge" title="{badge["name"]}">\n'
+            badges_html += f'            <img src="badges/{badge_filename}" alt="{badge["name"]}" class="badge" title="{badge["name"]}">\n'
         
         discord_display = f'<div class="discord-name">@{entry["discord"]}</div>' if entry['discord'] else ''
         
