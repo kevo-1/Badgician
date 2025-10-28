@@ -2,8 +2,8 @@ name: Sync Badges from Google Sheets
 
 on:
     schedule:
-        # Runs at midnight UTC every day
-        - cron: "0 0 * * *"
+        # Runs at midnight GMT+2 every day
+        - cron: "0 22 * * *"
     workflow_dispatch: # Allows manual triggering
 
 permissions:
