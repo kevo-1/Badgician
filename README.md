@@ -63,15 +63,15 @@ Below are all the badges that can be awarded to users:
    │       └── sync-badges.yml
    ├── scripts/
    │   └── sync_badges.py
-   ├── badges/
-   │   ├── contributor.svg
-   │   ├── rising_star.svg
-   │   ├── innovator.svg
-   │   └── ... (add your badge SVGs here)
    ├── data/
    │   └── badges.json (will be auto-generated)
    ├── docs/
    │   └── index.html (will be auto-generated)
+   |   └──badges/
+   │      ├── contributor.svg
+   │      ├── rising_star.svg
+   │      ├── innovator.svg
+   │      └── ... (add your badge SVGs here)
    └── README.md
    ```
 
